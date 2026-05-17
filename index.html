@@ -1,2 +1,100 @@
 <!DOCTYPE html>
-" + __import__('pathlib').Path('/mnt/data/final_index.html').read_text(encoding='utf-8')}
+<html lang="pt-BL">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deise Panitz | Psicanálise Contemporânea</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#111111;
+      --panel:#171717;
+      --text:#f5f1ea;
+      --muted:#b7aea1;
+      --line:rgba(255,255,255,0.08);
+      --accent:#4f8a66;
+      --accent-hover:#5d9b75;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block}
+    a{text-decoration:none}
+    .sticky-bar{position:fixed;top:0;left:0;right:0;padding:18px 5vw;display:flex;justify-content:flex-end;background:rgba(17,17,17,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);z-index:1000}
+    .sticky-cta,.btn-main{background:var(--accent);color:white;padding:14px 28px;border-radius:999px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:400;transition:.3s ease;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+    .sticky-cta:hover,.btn-main:hover{background:var(--accent-hover);transform:translateY(-1px)}
+    .hero{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;padding-top:78px}
+    .hero-left{padding:clamp(48px,8vw,120px);display:flex;flex-direction:column;justify-content:center}
+    .hero-tag{font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+    .custom-hook{max-width:640px;display:flex;flex-direction:column;gap:18px}
+    .line1{font-size:clamp(2.5rem,5vw,4.8rem);line-height:1.08;font-weight:600;letter-spacing:-.03em;text-transform:lowercase}
+    .line2{font-size:1.2rem;line-height:1.9;font-weight:300;color:var(--text)}
+    .line3,.line4{font-size:1rem;line-height:2;font-weight:300;color:var(--muted)}
+    .hero-cta{margin-top:42px;max-width:420px}
+    .btn-note{margin-top:14px;font-size:.9rem;color:var(--muted);font-weight:300}
+    .hero-right{padding:clamp(32px,5vw,72px);display:flex;align-items:center;justify-content:center}
+    .hero-video-wrapper{width:100%;max-width:520px}
+    .hero-photo{max-width:360px;width:100%;margin:0 auto;border-radius:28px;box-shadow:0 30px 70px rgba(0,0,0,.28);object-fit:cover}
+    .instagram-premium{margin-top:42px}
+    .insta-line{height:1px;background:var(--line);margin-bottom:18px}
+    .instagram-link{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:inline-block;margin-bottom:24px}
+    .instagram-feed-wrap{border:1px solid var(--line);border-radius:28px;overflow:hidden;background:var(--panel)}
+    .snapwidget-widget{width:100%!important;height:760px!important;border:none!important;display:block}
+    @media(max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .hero-left,.hero-right{padding:40px 24px}
+      .hero-right{padding-top:0}
+      .line1{text-transform:none}
+      .snapwidget-widget{height:680px!important}
+    }
+    @media(max-width:640px){
+      .sticky-bar{justify-content:center}
+      .line1{font-size:2.3rem}
+      .line2{font-size:1.05rem}
+      .hero-photo{max-width:300px}
+      .snapwidget-widget{height:560px!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="sticky-bar">
+    <a href="https://wa.me/5551992508808" class="sticky-cta">Agendar sessão</a>
+  </div>
+
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-tag">Deise Panitz</p>
+      <div class="custom-hook">
+        <div class="line1">você não é a soma do que viveu. você é quem escolhe ser a partir de hoje</div>
+        <div class="line2">A sua identidade não precisa ser refém da sua história.</div>
+        <div class="line3">Existe uma versão de você que vive com leveza, clareza e liberdade emocional.</div>
+        <div class="line4">O caminho até ela começa pelo autoconhecimento.</div>
+      </div>
+      <div class="hero-cta">
+        <a href="https://wa.me/5551992508808" class="btn-main">Agendar minha sessão</a>
+        <p class="btn-note">Resposta em até 24h · Online · Com discrição</p>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-video-wrapper">
+        <img src="SUA-FOTO.jpg" alt="Deise Panitz" class="hero-photo">
+
+        <div class="instagram-premium">
+          <div class="insta-line"></div>
+          <a href="https://instagram.com/depanitzpsi" target="_blank" class="instagram-link">acompanhar no instagram</a>
+          <div class="instagram-feed-wrap">
+            <iframe
+              src="https://snapwidget.com/embed/1123767"
+              class="snapwidget-widget"
+              allowtransparency="true"
+              frameborder="0"
+              scrolling="no"
+              title="Posts do Instagram">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
