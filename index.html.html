@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BL">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deise Panitz | Psicanálise Contemporânea</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070707;
+      --panel:#111111;
+      --text:#f5f1ea;
+      --muted:#cbbba0;
+      --line:rgba(212,175,55,0.14);
+      --accent:#c8a96b;
+      --accent-hover:#d8bb82;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block}
+    a{text-decoration:none}
+    .sticky-bar{display:none}
+    .floating-whatsapp{position:fixed;right:22px;bottom:22px;width:78px;height:78px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),#f1d18a);color:#070707;font-size:2.4rem;font-weight:700;box-shadow:0 22px 50px rgba(0,0,0,.38);z-index:1200;transition:.3s ease;border:1px solid rgba(255,255,255,.12)}
+    .floating-whatsapp:hover{background:var(--accent-hover);transform:translateY(-2px)}
+    .sticky-cta,.btn-main{background:linear-gradient(135deg,var(--accent),#f1d18a);color:#070707;padding:20px 42px;border-radius:14px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;transition:.3s ease;box-shadow:0 18px 42px rgba(0,0,0,.34);display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.08)}
+    .sticky-cta:hover,.btn-main:hover{background:linear-gradient(135deg,#f1d18a,var(--accent-hover));transform:translateY(-3px)}
+    .hero{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;padding-top:78px}
+    .hero-left{padding:clamp(48px,8vw,120px);display:flex;flex-direction:column;justify-content:center}
+    .hero-tag{font-size:11px;letter-spacing:.38em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .hero-role{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;font-weight:300}
+    .custom-hook{max-width:640px;display:flex;flex-direction:column;gap:18px}
+    .line1{font-size:clamp(2.5rem,4.6vw,5rem);line-height:1.06;font-weight:700;letter-spacing:-.03em;text-transform:uppercase !important}
+    .line2{font-size:1.2rem;line-height:1.9;font-weight:300;color:var(--text)}
+    .line3,.line4{font-size:1rem;line-height:2;font-weight:300;color:var(--muted)}
+    .hero-cta{margin-top:52px;max-width:620px}
+    .secondary-cta{display:none}
+    .btn-note{display:none}
+    .confidential-seal{display:none}
+    .trust-band{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;padding-top:18px;border-top:1px solid var(--line)}
+    .trust-badge{padding:10px 18px;border:1px solid rgba(212,175,55,.16);border-radius:999px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);background:rgba(255,255,255,.01)}
+    .trust-row{display:none}
+    .hero-right{padding:clamp(32px,5vw,72px);display:flex;align-items:center;justify-content:center}
+    .hero-video-wrapper{width:100%;max-width:520px}
+    .hero-photo{max-width:360px;width:100%;margin:0 auto;border-radius:28px;box-shadow:0 30px 70px rgba(0,0,0,.28);object-fit:cover}
+    .instagram-premium{margin-top:42px}
+    .insta-line{height:1px;background:var(--line);margin-bottom:18px}
+    .instagram-link{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);display:inline-block;margin-bottom:24px}
+    .instagram-feed-wrap{border:1px solid var(--line);border-radius:28px;overflow:hidden;background:var(--panel)}
+    .snapwidget-widget{width:100%!important;height:760px!important;border:none!important;display:block}
+    @media(max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .hero-left,.hero-right{padding:40px 24px}
+      .hero-right{padding-top:0}
+      .line1{text-transform:uppercase !important}
+      .snapwidget-widget{height:680px!important}
+    }
+    .about-me,.about-premium,.faq-premium{padding:140px 24px;border-top:1px solid var(--line)}
+    .about-me{background:radial-gradient(circle at left top,rgba(212,175,55,.04),transparent 28%)}
+    .about-wrap{max-width:1280px;margin:0 auto;overflow:hidden}
+    .about-grid{display:grid;grid-template-columns:minmax(320px,460px) minmax(420px,1fr);gap:72px;align-items:start}
+    .about-portrait-shell{position:relative}
+    .about-portrait-shell:after{content:'';position:absolute;inset:36px -22px -22px 36px;border:1px solid rgba(212,175,55,.14);border-radius:34px;z-index:0}
+    .about-photo{border-radius:28px;overflow:hidden;border:1px solid rgba(212,175,55,.14);box-shadow:0 10px 30px rgba(0,0,0,.35),0 0 40px rgba(212,175,55,.06);background:rgba(255,255,255,.02)}
+    .about-intro{font-size:13px;letter-spacing:.42em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;font-weight:600}
+    .about-me h2{font-size:clamp(2.8rem,4.8vw,5.8rem);line-height:1.02;max-width:900px;margin-bottom:34px;letter-spacing:-.045em;font-weight:300;text-transform:none}
+    .about-premium{
+      padding:72px 24px 48px;
+      border-top:1px solid var(--line);
+      background:radial-gradient(circle at top left, rgba(212,175,55,.05), transparent 38%),linear-gradient(180deg, rgba(255,255,255,.015), rgba(255,255,255,.008));
+      border-radius:34px;
+    }
+    .about-premium h2{font-size:clamp(3.2rem,5.4vw,5.8rem);line-height:.98;max-width:1100px;margin-bottom:46px;letter-spacing:-.045em;font-weight:300;text-transform:uppercase}
+    .about-premium > .about-wrap > p{max-width:760px;font-size:1.12rem;line-height:2.15}
+    .about-premium .about-intro{margin-bottom:34px}
+    
+  
+    .about-me p,.about-premium p{font-size:1.05rem;line-height:2.05;color:var(--muted);max-width:920px}
+    .about-me p + p,.about-premium p + p{margin-top:18px}
+    .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:58px}
+    .step-card{border:1px solid var(--line);padding:38px;border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.01),rgba(255,255,255,.02));position:relative;backdrop-filter:blur(12px);transition:.35s ease}
+    .step-card:hover,.info-card:hover,.proof-card:hover,.testimonial-card:hover{transform:translateY(-6px);border-color:rgba(212,175,55,.28)}
+    .step-number{font-size:3rem;color:var(--accent);font-weight:700;line-height:1;margin-bottom:18px}
+    .proof-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+    .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
+    .testimonial-card{padding:28px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.015),rgba(255,255,255,.008));color:var(--muted);line-height:1.9;font-size:.96rem}
+    .testimonial-card strong{display:block;color:var(--text);margin-top:14px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+    .footer-premium{padding:170px 24px 110px;border-top:1px solid var(--line);background:radial-gradient(circle at top left,rgba(212,175,55,.05),transparent 24%),#080808}
+    .footer-shell{max-width:1320px;margin:0 auto;padding:68px 58px 34px;border:1px solid rgba(212,175,55,.14);border-radius:34px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));box-shadow:0 30px 90px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.03)}
+    .footer-grid{display:grid;grid-template-columns:1.3fr .95fr;gap:72px;align-items:start}
+    .footer-brand{padding-right:24px}
+    .footer-kicker{font-size:.78rem;letter-spacing:.42em;text-transform:uppercase;color:var(--accent);margin-bottom:24px}
+    .footer-title{font-size:clamp(3.4rem,5vw,6.2rem);line-height:.96;max-width:780px;font-weight:300;letter-spacing:-.05em;margin-bottom:26px}
+    .footer-description{font-size:1.08rem;line-height:2.15;color:var(--muted);max-width:680px;margin-bottom:20px}
+    .footer-institutional-line{margin:18px 0 30px;padding-top:18px;border-top:1px solid rgba(212,175,55,.14);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .footer-institutional-line span{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
+    .footer-cta-main{display:inline-flex;align-items:center;justify-content:center;padding:18px 30px;border-radius:999px;background:linear-gradient(135deg,var(--accent),#f1d18a);color:#070707;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;border:1px solid rgba(255,255,255,.08);box-shadow:0 16px 34px rgba(0,0,0,.32),0 0 34px rgba(212,175,55,.06);transition:all .35s ease}
+    .footer-cta-main:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(0,0,0,.38),0 0 40px rgba(212,175,55,.1)}
+    .footer-side{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .footer-card{border:1px solid rgba(212,175,55,.1);border-radius:24px;padding:24px 20px;background:linear-gradient(180deg,rgba(255,255,255,.015),rgba(255,255,255,.008));min-height:100%}
+    .footer-card.sigilo-inline p{display:flex;align-items:center;flex-wrap:wrap;gap:10px;line-height:1.9}
+    .footer-card.sigilo-inline p span{white-space:nowrap}
+    .footer-copyright{margin-top:34px;padding-top:22px;border-top:1px solid rgba(212,175,55,.1);text-align:center;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--subtle)}
+    .footer-label{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;display:block}
+    .footer-card p{color:var(--muted);line-height:2;font-size:.95rem}
+    .footer-social-btn{display:flex;align-items:center;justify-content:center;gap:12px;padding:15px 18px;border-radius:999px;border:1px solid rgba(212,175,55,.14);margin-bottom:12px;color:var(--text);transition:.35s ease;background:rgba(255,255,255,.015);text-align:center}
+    .footer-social-btn svg{width:18px;height:18px;fill:var(--accent)}
+    .footer-social-btn:hover{transform:translateY(-2px);border-color:rgba(212,175,55,.28)}
+    .social-icon{color:var(--accent)}
+    .footer-bottom-bar{margin-top:42px;padding-top:24px;border-top:1px solid rgba(212,175,55,.1);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-badges{display:flex;gap:14px;flex-wrap:wrap}
+    .footer-badges span{padding:10px 16px;border-radius:999px;border:1px solid rgba(212,175,55,.12);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+    .footer-logo img{max-width:220px;opacity:.92}
+    .footer-divider,.footer-meta,.footer-links{display:none}
+    .proof-card{padding:26px;border:1px solid var(--line);border-radius:20px;background:var(--panel);font-size:.98rem;line-height:1.8;color:var(--muted)}
+    .info-card{border:1px solid var(--line);padding:32px;border-radius:22px;background:var(--panel)}
+    .info-card h3{margin-bottom:14px;font-size:1.1rem}
+    .about-cta{margin-top:44px}
+    @media(max-width:980px){.info-grid,.steps-grid,.proof-strip,.testimonial-grid,.footer-side{grid-template-columns:1fr}.footer-grid,.about-me-grid{grid-template-columns:1fr}.footer-shell{padding:42px 24px}}
+    @media(max-width:640px){
+      .sticky-bar{justify-content:center}
+      .line1{font-size:2.3rem}
+      .line2{font-size:1.05rem}
+      .hero-photo{max-width:300px}
+      .snapwidget-widget{height:560px!important}
+    }
+  </style>
+</head>
+<body>
+  
+
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-tag">Deise Panitz</p>
+      <p class="hero-role">Psicanalista & Hipnoterapeuta</p>
+      <div class="custom-hook">
+        <div class="line1">Você não é a soma do que viveu.<br>Você é quem escolhe ser a partir de hoje.</div>
+        <div class="line2">A sua identidade não precisa ser refém da sua história.</div>
+        <div class="line3">Existe uma versão de você que vive com leveza, clareza e liberdade emocional.</div>
+        <div class="line4">O caminho até ela começa pelo autoconhecimento.</div>
+      </div>
+      <div class="hero-cta">
+        <a href="https://wa.me/5551992508808" class="btn-main">Fale com Deise no WhatsApp</a>
+        <div class="trust-band">
+          <span class="trust-badge">Sigilo clínico</span>
+          <span class="trust-badge">Online</span>
+          <span class="trust-badge">Hipnoterapia clínica</span>
+          <span class="trust-badge">Resposta em até 24h</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-video-wrapper">
+        <img src="deise-panitz-premium.jpg" alt="Deise Panitz" class="hero-photo">
+
+        <div class="instagram-premium">
+          <div class="insta-line"></div>
+          <a href="https://instagram.com/depanitzpsi" target="_blank" class="instagram-link">acompanhar no instagram</a>
+          <div class="instagram-feed-wrap">
+            <iframe
+              src="https://snapwidget.com/embed/1123767"
+              class="snapwidget-widget"
+              allowtransparency="true"
+              frameborder="0"
+              scrolling="no"
+              title="Posts do Instagram">
+            </iframe>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="about-me">
+    <div class="about-me-wrap">
+      <div class="about-me-grid">
+        <div class="about-portrait-shell">
+          <img src="deise-panitz-premium.jpg" alt="Deise Panitz" class="about-photo">
+        </div>
+        <div>
+          <div class="about-intro">SOBRE DEISE PANITZ</div>
+          <h2>Psicanálise, profundidade clínica e hipnoterapia estratégica para compreender padrões emocionais com discrição.</h2>
+          <p>Deise Panitz conduz atendimentos com foco em investigação emocional profunda, compreensão de padrões inconscientes e processos terapêuticos voltados à reconstrução interna. Sua abordagem integra psicanálise e hipnoterapia clínica com seriedade, discrição e direcionamento individualizado.</p>
+          <p>O objetivo não é oferecer respostas prontas, mas ajudar você a compreender o que sustenta bloqueios, repetições e dores emocionais para construir mudanças mais consistentes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-premium">
+    <div class="about-wrap">
+      <div class="about-intro">Hipnoterapia clínica & psicanálise contemporânea</div>
+      <h2>QUANDO PADRÕES EMOCIONAIS SE REPETEM,<br>ENTENDER APENAS A SUPERFÍCIE<br>NEM SEMPRE BASTA.</h2>
+      <p>A hipnoterapia clínica pode auxiliar no acesso a padrões profundos de percepção, resposta emocional e memória, permitindo um trabalho terapêutico mais estratégico para questões como ansiedade, autossabotagem, insegurança, compulsões emocionais e bloqueios persistentes.</p>
+      <p>Aliada à escuta psicanalítica, a proposta não é motivação vazia — é investigação séria, reestruturação interna e clareza emocional.</p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Para quem pode fazer sentido</h3>
+          <p>Para pessoas que percebem que, apesar de entenderem racionalmente seus desafios, continuam presas a padrões emocionais repetitivos — ansiedade, insegurança, relações desgastantes, autossabotagem, medo, compulsões ou bloqueios que parecem mais profundos do que simples força de vontade consegue resolver.</p>
+        </div>
+        <div class="info-card">
+          <h3>Como funciona</h3>
+          <p>Cada processo é conduzido com estratégia clínica, escuta aprofundada e técnicas voltadas à identificação de padrões emocionais que permanecem ativos mesmo quando você tenta seguir em frente. O trabalho une compreensão consciente e acesso a respostas mais profundas, permitindo reorganização emocional com mais precisão.</p>
+        </div>
+        <div class="info-card">
+          <h3>O objetivo</h3>
+          <p>Reduzir ciclos de autossabotagem, aliviar cargas emocionais persistentes, fortalecer sua percepção interna e criar mudanças reais na forma como você sente, reage e se posiciona diante da própria vida.</p>
+        </div>
+      </div>
+
+      <div class="about-cta">
+        <a href="https://wa.me/5551992508808" class="btn-main">Fale com Deise no WhatsApp</a>
+      </div>
+
+      <div class="about-intro" style="margin-top:90px;">TRÊS PASSOS PARA ROMPER PADRÕES PROFUNDOS</div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3>Identificar o que se repete</h3>
+          <p>Ansiedade, autossabotagem, insegurança, relações frustrantes ou bloqueios persistentes raramente surgem do nada. O primeiro passo é compreender o padrão emocional real por trás do sintoma.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3>Acessar o nível mais profundo</h3>
+          <p>Quando necessário, a hipnoterapia clínica pode facilitar acesso mais estratégico a respostas emocionais profundas, ajudando a trabalhar o que permanece ativo além da análise superficial.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3>Reestruturar sua forma de viver</h3>
+          <p>O objetivo não é apenas aliviar sintomas — é reduzir repetições, fortalecer autonomia emocional e criar mudanças consistentes na forma como você sente, escolhe e se posiciona.</p>
+        </div>
+      </div>
+
+      <div class="about-intro" style="margin-top:90px;">CONFIANÇA, DISCRIÇÃO E SERIEDADE CLÍNICA</div>
+      <div class="proof-strip">
+        <div class="proof-card">Atendimento conduzido com privacidade, profundidade e estratégia individualizada.</div>
+        <div class="proof-card">Integração entre escuta psicanalítica e hipnoterapia clínica sem promessas vazias.</div>
+        <div class="proof-card">Foco em compreender causas emocionais profundas, não apenas administrar sintomas.</div>
+      </div>
+    </div>
+
+      <div class="about-intro" style="margin-top:90px;">RELATOS DE TRANSFORMAÇÃO</div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">“Pela primeira vez senti que não estava apenas falando sobre meus padrões — estava realmente compreendendo e mudando o que sustentava tudo isso.”<strong>Paciente • Atendimento Online</strong></div>
+        <div class="testimonial-card">“A profundidade do processo me trouxe clareza sobre repetições emocionais que eu carregava há anos sem perceber.”<strong>Paciente • Processo Individual</strong></div>
+        <div class="testimonial-card">“O trabalho foi muito mais sério e estratégico do que eu imaginava. Me senti segura, respeitada e profundamente compreendida.”<strong>Paciente • Hipnoterapia Clínica</strong></div>
+      </div>
+
+      </section>
+
+  <section class="faq-premium">
+    <div class="about-wrap">
+      <div class="about-intro">DÚVIDAS FREQUENTES</div>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Hipnose clínica é perder o controle?</h3>
+          <p>Não. Hipnoterapia clínica séria não retira sua consciência nem sua autonomia. O processo trabalha foco, acesso emocional e investigação terapêutica com segurança e direcionamento clínico.</p>
+        </div>
+        <div class="info-card">
+          <h3>Funciona online?</h3>
+          <p>Sim. Quando conduzido com técnica e estrutura adequada, o atendimento online pode oferecer profundidade, privacidade e resultados consistentes.</p>
+        </div>
+        <div class="info-card">
+          <h3>Preciso estar vulnerável ou sugestionável para funcionar?</h3>
+          <p>Não. Hipnoterapia clínica não depende de ingenuidade ou perda de autonomia. O processo depende de condução técnica, segurança e abertura para investigação emocional estruturada.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="footer-premium">
+  <div class="footer-shell">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <div class="footer-kicker">DEISE PANITZ</div>
+
+        <h2 class="footer-title">
+          Psicanálise contemporânea e hipnoterapia clínica com discrição, profundidade e transformação estrutural.
+        </h2>
+
+        <p class="footer-description">
+          Uma abordagem clínica reservada para pessoas que desejam compreender padrões emocionais profundos, romper repetições inconscientes e construir mudanças consistentes com sofisticação, estratégia e sigilo.
+        </p>
+        <div class="footer-institutional-line">
+         
+        </div>
+
+        <a href="https://wa.me/5551992508808" class="footer-cta-main">
+          Fale com Deise no WhatsApp
+        </a>
+      </div>
+
+      <div class="footer-side">
+
+        <div class="footer-card">
+          <span class="footer-label">Atendimento</span>
+          <p>Online para Brasil e exterior</p>
+          <p>Processo clínico confidencial</p>
+          <p>Resposta em até 24h</p>
+        </div>
+
+        <div class="footer-card">
+          <span class="footer-label">Contato</span>
+
+          <a href="https://wa.me/5551992508808" class="footer-social-btn whatsapp-btn"><svg viewBox="0 0 32 32"><path d="M19.11 17.39c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.73.92-.89 1.11-.17.19-.33.22-.62.07-.29-.14-1.2-.44-2.29-1.39-.85-.76-1.42-1.69-1.58-1.98-.17-.29-.02-.45.12-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.99 2.43 0 1.43 1.03 2.81 1.17 3 .14.19 2.03 3.1 4.91 4.34.69.29 1.22.47 1.64.6.69.22 1.31.19 1.8.12.55-.08 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z"/></svg>WhatsApp</a>
+
+          <a href="https://instagram.com/depanitzpsi" target="_blank" class="footer-social-btn instagram-btn"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 4.8A5.2 5.2 0 1 0 17.2 12 5.21 5.21 0 0 0 12 6.8zm6.2-.9a1.2 1.2 0 1 0 1.2 1.2 1.2 1.2 0 0 0-1.2-1.2z"/></svg>Instagram</a>
+        </div>
+
+        <div class="footer-card sigilo-inline">
+          <span class="footer-label">Sigilo</span>
+          <p><span><strong>Sigilo absoluto</strong></span><span>•</span><span>Processo clínico reservado</span><span>•</span><span>Discrição real</span></p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom-bar">
+
+      <div class="footer-badges">
+        <span>SIGILO</span>
+        <span>BRASIL & EXTERIOR</span>
+        <span>RESPOSTA 24H</span>
+      </div>
+
+      <div class="footer-logo">
+        <img src="logo.png" alt="Deise Panitz">
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<div class="footer-copyright">
+      © 2026 Deise Panitz • Psicanalista | Hipnoterapeuta • Todos os direitos reservados.
+    </div>
+
+    <a href="https://wa.me/5551992508808" class="floating-whatsapp" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor">
+    <path d="M19.11 17.39c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.73.92-.89 1.11-.17.19-.33.22-.62.07-.29-.14-1.2-.44-2.29-1.39-.85-.76-1.42-1.69-1.58-1.98-.17-.29-.02-.45.12-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.99 2.43 0 1.43 1.03 2.81 1.17 3 .14.19 2.03 3.1 4.91 4.34.69.29 1.22.47 1.64.6.69.22 1.31.19 1.8.12.55-.08 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z"/>
+  </svg>
+</a>
+  
