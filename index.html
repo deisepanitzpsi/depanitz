@@ -293,30 +293,66 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width:991px) {
-  .nav-logo img { height:44px; width:auto; }
-
-  nav { padding:0 20px; }
+  /* NAV */
+  nav { padding:0 16px; height:60px; }
+  .nav-logo img { height:38px; width:auto; }
   .nav-links { display:none; }
-  .hero { grid-template-columns:1fr; min-height:auto; padding-top:72px; }
-  .hero-left { padding:24px 20px !important; order:1 !important; }
-  .hero-right { height:85vw !important; order:2 !important; }
-  .hero-cred { margin-top:16px; }
-  .hero-h1 { font-size:28px !important; line-height:1.1 !important; }
-  h2 { font-size:28px; }
-  .trust-bar { padding:24px 20px; }
-  .trust-grid { grid-template-columns:repeat(2,1fr); gap:20px; }
-  section { padding:48px 0; }
-  .container { padding:0 20px; }
-  .sessoes-grid { grid-template-columns:1fr; }
-  .sobre-grid { grid-template-columns:1fr; gap:32px; }
-  .bento-grid { grid-template-columns:1fr; gap:16px; }
-  .depo-grid { grid-template-columns:1fr; }
-  .footer-grid { grid-template-columns:1fr; gap:28px; }
-  .footer-bottom { flex-direction:column; gap:8px; }
-  footer { padding:40px 20px 24px; }
-  .hero-btns { flex-direction:column; }
-  .btn-primary, .btn-secondary { justify-content:center; }
-  .canal-section { padding:48px 20px; }
+
+  /* HERO */
+  .hero { grid-template-columns:1fr; min-height:auto; padding-top:60px; }
+  .hero-left { padding:20px 16px !important; order:1 !important; }
+  .hero-right { height:75vw !important; order:2 !important; }
+  .hero-h1 { font-size:24px !important; line-height:1.15 !important; margin-bottom:16px !important; }
+  .hero-sub { font-size:14px; margin-bottom:20px; }
+  .hero-btns { flex-direction:column; gap:10px; }
+  .btn-primary, .btn-secondary { justify-content:center; width:100%; padding:13px 16px; font-size:10px; }
+  .hero-cred { margin-top:16px; padding:12px 14px; }
+  .hero-cred p { font-size:10.5px; }
+  .hero-cred span { font-size:9px; }
+
+  /* GERAL */
+  h2 { font-size:24px; }
+  section { padding:36px 0; }
+  .container { padding:0 16px; }
+
+  /* TRUST BAR */
+  .trust-bar { padding:20px 16px; }
+  .trust-grid { grid-template-columns:repeat(2,1fr); gap:16px; }
+  .trust-icon { width:20px; height:20px; }
+  .trust-label { font-size:10px; }
+
+  /* SESSÕES */
+  .sessoes-grid { grid-template-columns:1fr; gap:16px; }
+  .sessoes-card { padding:28px 20px; }
+  .sessoes-price { font-size:28px; }
+
+  /* SOBRE */
+  .sobre-grid { grid-template-columns:1fr; gap:24px; }
+  .sobre-img-cred { font-size:10px; padding:10px 12px; }
+
+  /* DEPOIMENTOS */
+  .depo-grid { grid-template-columns:1fr; gap:16px; }
+  .depo-card { padding:24px; }
+
+  /* FOOTER */
+  .footer-grid { grid-template-columns:1fr; gap:20px; }
+  .footer-bottom { flex-direction:column; gap:8px; font-size:10px; }
+  footer { padding:32px 16px 20px; }
+
+  /* CANAL */
+  .canal-section { padding:40px 16px; }
+  .canal-section h2 { font-size:22px; }
+
+  /* HIPNO */
+  .hipno-hook { font-size:26px; }
+  .hipno-sub { font-size:14px; margin-bottom:28px; }
+  .hipno-section { padding:40px 0; }
+  .hipno-grid { grid-template-columns:1fr; gap:14px; }
+
+  /* FAQ */
+  .faq-q { font-size:16px; }
+  .faq-a { font-size:13px; }
+  .hipno-faq-q { font-size:14px; padding:16px 0; }
 }
 
 /* ANIMAÇÕES */
@@ -402,6 +438,30 @@ footer {
   #hipnoterapia .container > div[style*="grid-template-columns:repeat(3"] { grid-template-columns:1fr !important; }
   #hipnoterapia .container > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
   #casos .container > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
+}
+
+@media (max-width:991px) {
+  /* Grids inline no mobile */
+  div[style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns:1fr !important; }
+  div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
+  div[style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns:repeat(2,1fr) !important; }
+
+  /* Hipno section padding lateral */
+  #hipnoterapia .container { padding:0 16px; }
+  #casos .container { padding:0 16px; }
+
+  /* Cards internos hipno */
+  #hipnoterapia div[style*="padding:28px"] { padding:20px 16px !important; }
+  #hipnoterapia div[style*="padding:32px"] { padding:20px 16px !important; }
+  #casos div[style*="padding:32px"] { padding:20px 16px !important; }
+
+  /* Texto h2 hipno */
+  #hipnoterapia h2 { font-size:22px !important; }
+
+  /* Botões hipno */
+  #hipnoterapia .container > div[style*="display:flex;gap:16px"] { flex-direction:column !important; }
+  #hipnoterapia a[style*="padding:14px 28px"] { justify-content:center !important; width:100% !important; }
+  #hipnoterapia a[style*="padding:13px 28px"] { justify-content:center !important; width:100% !important; }
 }
 </style>
 <!-- Meta Pixel Code -->
